@@ -253,17 +253,18 @@ endfunction()
 else ()
 
 function(add_precompiled_header _target _input)
-    message(STATUS "Adding precompiled header ${_input} to target ${_target}.")
-    target_precompile_headers(${_target} PRIVATE ${_input})
+#    message(STATUS "Adding precompiled header ${_input} to target ${_target}.")
+#    target_precompile_headers(${_target} PRIVATE ${_input})
 
-    get_target_property(_sources ${_target} SOURCES)
-    list(FILTER _sources INCLUDE REGEX ".*\\.mm?")
+#    get_target_property(_sources ${_target} SOURCES)
+#    list(FILTER _sources INCLUDE REGEX ".*\\.mm?")
 
-    if (_sources)
-        message(STATUS "PCH skipping sources: ${_sources}")
-    endif ()
+#    if (_sources)
+#        message(STATUS "PCH skipping sources: ${_sources}")
+#    endif ()
 
-    set_source_files_properties(${_sources} PROPERTIES SKIP_PRECOMPILE_HEADERS ON)
+#    set_source_files_properties(${_sources} PROPERTIES SKIP_PRECOMPILE_HEADERS ON)
+message(STATUS "Skipping pch to measure build time difference...")
 endfunction()
 
 endif (CMAKE_VERSION VERSION_LESS 3.16)
