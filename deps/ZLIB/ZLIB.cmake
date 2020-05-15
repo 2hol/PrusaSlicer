@@ -8,3 +8,6 @@ prusaslicer_add_cmake_project(ZLIB
     -DCMAKE_POSITION_INDEPENDENT_CODE=ON
 )
 
+# if (MSVC)
+#     add_debug_dep(dep_ZLIB)
+# endif ()
